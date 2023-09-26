@@ -8,7 +8,7 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import { AuthBox } from "../components/AuthBox";
+
 import { getURL } from "../utils/helpers";
 import { supabase } from "../utils/supabase-client";
 import { T, useT } from "@magic-translate/react";
@@ -54,14 +54,7 @@ const ResetPassword = () => {
   };
 
   return (
-    <AuthBox title={t("Reset password")}>
-      {message.content && (
-        <Text color="red.500" fontSize="sm" mb={4}>
-          <T>{message.content}</T>
-        </Text>
-      )}
 
-      <form onSubmit={handleReset}>
         <Box>
           <Box>
             <FormLabel htmlFor="email">
@@ -89,8 +82,8 @@ const ResetPassword = () => {
             <T>Reset password</T>
           </Button>
         </Box>
-      </form>
-    </AuthBox>
+
+
   );
 };
 
