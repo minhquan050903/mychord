@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/router";
-import { AuthBox } from "../components/AuthBox";
+
 import { supabase } from "../utils/supabase-client";
 import { useUser } from "../utils/useUser";
 import { T, useT } from "@magic-translate/react";
@@ -89,14 +89,7 @@ const NewPassword = () => {
   };
 
   return (
-    <AuthBox title="Set new password">
-      {message.content && (
-        <Text color="red.500" fontSize="sm" mb={4}>
-          <T>{message.content}</T>
-        </Text>
-      )}
 
-      <form onSubmit={handleReset}>
         <Flex direction="column" gap={4}>
           <Box>
             <FormLabel htmlFor="password">
@@ -138,8 +131,8 @@ const NewPassword = () => {
             <T>Set new password</T>
           </Button>
         </Flex>
-      </form>
-    </AuthBox>
+     
+    
   );
 };
 
