@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 import { supabase } from "../utils/supabase-client";
 import { useUser } from "../utils/useUser";
 import { T, useT } from "@magic-translate/react";
-import { t } from "@chakra-ui/styled-system/dist/declarations/src/utils";
+
 
 const useUpdatePasswordMutation = () => {
   const { accessToken } = useUser();
