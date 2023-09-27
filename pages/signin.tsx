@@ -16,7 +16,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Provider } from "@supabase/supabase-js";
-import { AuthBox } from "../components/AuthBox";
+
 import { getURL } from "../utils/helpers";
 import { GetStaticPropsResult } from "next";
 import { T, useT } from "@magic-translate/react";
@@ -97,101 +97,7 @@ const SignIn = () => {
 
   if (!user)
     return (
-      <AuthBox title={t("Sign in to Chordpic")}>
-        {message.content && (
-          <Text color="red.500" fontSize="sm">
-            <T>{message.content}</T>
-          </Text>
-        )}
 
-        {!showPasswordInput && (
-          <form onSubmit={handleSignin}>
-            <Box display="flex" flexDir="column" gap={4}>
-              <Box>
-                <FormLabel htmlFor="email">Email</FormLabel>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  border="2px"
-                  borderColor="primary"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  colorScheme="teal"
-                />
-              </Box>
-              <Button
-                variant="solid"
-                mt={4}
-                type="submit"
-                isLoading={loading}
-                disabled={!email.length}
-                width="100%"
-              >
-                Send magic link
-              </Button>
-            </Box>
-          </form>
-        )}
-
-        {showPasswordInput && (
-          <form onSubmit={handleSignin}>
-            <Box display="flex" flexDir="column" gap={4}>
-              <Box>
-                <FormLabel htmlFor="email">Email</FormLabel>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  width="100%"
-                />
-              </Box>
-              <Box>
-                <FormLabel htmlFor="password">Password</FormLabel>
-                <Input
-                  id="password"
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  width="100%"
-                />
-              </Box>
-              <Button
-                variant="outline"
-                border="2px"
-                type="submit"
-                isLoading={loading}
-                disabled={!password.length || !email.length}
-                width="100%"
-              >
-                Sign in
-              </Button>
-            </Box>
-          </form>
-        )}
-
-        <Box mt={4} mb={6} textAlign="center">
-          <Link
-            href="#"
-            onClick={() => {
-              if (showPasswordInput) setPassword("");
-              setShowPasswordInput(!showPasswordInput);
-              setMessage({});
-            }}
-          >
-            {`Or sign in with ${showPasswordInput ? "magic link" : "password"}`}
-          </Link>
-          .
-        </Box>
 
         {/* <Box display="flex" alignItems="center" my={8}>
           <Divider />
@@ -211,31 +117,8 @@ const SignIn = () => {
           Continue with Google
         </Button> */}
 
-        <Box textAlign="center" mb={2} mt={6} fontSize="sm">
-          <Box as="span">
-            <T>Don&apos;t have an account?</T>
-          </Box>
-          {` `}
-          <NextLink href="/signup" legacyBehavior>
-            <Link>
-              <T>Sign up</T>
-            </Link>
-          </NextLink>
-          .
-        </Box>
-        <Box textAlign="center" my={2} fontSize="sm">
-          <Box as="span">
-            <T>Forgot password?</T>
-          </Box>
-          {` `}
-          <NextLink href="/reset-password" legacyBehavior>
-            <Link>
-              <T>Reset password</T>
-            </Link>
-          </NextLink>
-          .
-        </Box>
-      </AuthBox>
+
+
     );
 
   return (

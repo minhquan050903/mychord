@@ -6,7 +6,7 @@ import { FormEvent, useEffect, useState } from "react";
 
 import { Box, Button, Flex, Input, Link, useToast } from "@chakra-ui/react";
 import { User } from "@supabase/gotrue-js";
-import { AuthBox } from "../components/AuthBox";
+
 import { updateUserName } from "../utils/supabase-client";
 import { GetStaticPropsResult } from "next";
 import { T, useT } from "@magic-translate/react";
@@ -73,7 +73,7 @@ const SignUp = () => {
   }, [newUser, user, router]);
 
   return (
-    <AuthBox title={t("Sign up for Chordpic")}>
+    
       <form onSubmit={handleSignup} className="flex flex-col space-y-4">
         {message.content && (
           <div
@@ -125,7 +125,7 @@ const SignUp = () => {
           </NextLink>
         </Box>
       </form>
-    </AuthBox>
+    
   );
 };
 
