@@ -10,6 +10,7 @@ import * as Sentry from "@sentry/react";
 const defaultSVGuitarSettings: Partial<ChordSettings> = {
   fretSize: 1.75,
   barreChordRadius: 0.5,
+  orientation : Orientation.horizontal
 };
 
 export const ChordChart: React.FunctionComponent = () => {
