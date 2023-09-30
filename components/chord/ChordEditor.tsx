@@ -128,6 +128,7 @@ export const ChordEditor = (props: IProps) => {
   );
 };
 
+
 function emptyTunings(length: number): string[] {
   return Array.from({ length }, () => "");
 }
