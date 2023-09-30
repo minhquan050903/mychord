@@ -66,26 +66,9 @@ export const ColorInput = (props: Props) => {
 
   return (
     <ColorPickerContainer>
-      {props.render ? (
-        props.render({
-          value: props.value,
-          onClick: () => setVisible(!visible),
-        })
-      ) : (
-        <ColorPreviewButton
-          variant="outline"
-          onClick={() => setVisible(!visible)}
-        >
-          <ColorPreview color={props.value} />
-          <T>Select color...</T>
-        </ColorPreviewButton>
-      )}
+      
 
-      {visible && (
-        <ClickWrapper ref={ref}>
-          <SketchPicker color={props.value} onChangeComplete={onColorChange} />
-        </ClickWrapper>
-      )}
+     
     </ColorPickerContainer>
   );
 };

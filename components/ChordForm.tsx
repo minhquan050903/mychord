@@ -19,7 +19,8 @@ import {
   Tooltip,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useDeferredValue, useEffect, useState } from "react";
+
+import React, { useDeferredValue, useEffect, useState, useCallback } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { ChordSettings, ChordStyle, Orientation } from "svguitar";
 import { SubscriptionType } from "../types";
@@ -28,6 +29,8 @@ import { ColorInput } from "./ColorInput";
 import { SliderWithTooltip } from "./SliderWithTooltip";
 import { GA } from "../services/google-analytics";
 import { T, useT } from "@magic-translate/react";
+import { useChart } from "../components/chord/useChart";
+import { useIsClient } from "../hooks/use-is-client";
 
 export type AdjustableChordSettings = Pick<
   ChordSettings,
@@ -61,8 +64,8 @@ export const defaultValues: AdjustableChordSettings = {
   strokeWidth: 2,
   titleFontSize: 48,
   backgroundColor: "white",
-  color: undefined,
-  
+  color: "black",
+  tuning: ['E', 'A', 'D', 'G', 'B', 'E'],
   fixedDiagramPosition: false,
 };
 
@@ -125,6 +128,10 @@ export const ChordForm: React.FunctionComponent<{
     GA()?.("event", "reset_settings");
     reset(defaultValues);
   };
+  const { setChart, chart } = useChart();
+
+  const isClient = useIsClient();
+
 
   return (
     <>
@@ -200,7 +207,7 @@ export const ChordForm: React.FunctionComponent<{
           <Box>
             <FormControl>
               <FormLabel>
-                <T>Height</T>
+                <T>Frets height</T>
                 <Controller
                   control={control}
                   name="fretSize"
@@ -291,7 +298,42 @@ export const ChordForm: React.FunctionComponent<{
                 <T>Reset settings</T>
               </Button>
             </FormLabel>
+            
+                  
+               
           </Flex>
+          <Flex alignItems="center" justify="center">
+            <FormLabel as="div">
+            <Button
+          display="flex"
+
+          aria-label={t("Rotate chord diagram")}
+          
+          onClick={() => {
+            GA()?.("event", "rotate_chord_diagram");
+            setChart({
+              ...chart,
+              settings: {
+                ...chart.settings,
+                orientation:
+                  chart.settings.orientation ===
+                  Orientation.horizontal
+                    ? Orientation.vertical
+                    : Orientation.horizontal,
+              },
+            });
+          }}
+          >Rotate</Button>
+            </FormLabel>
+            
+                  
+               
+          </Flex>
+          
+          
+          
+          
+
       </SimpleGrid>
 
       

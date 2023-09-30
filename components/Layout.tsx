@@ -22,9 +22,8 @@ export const Layout: React.FunctionComponent<
   const subscription = useSubscription();
 
   const meta = {
-    title: `Free guitar chord diagram creator`,
-    description: "It has never been easier to create beautiful chord diagrams.",
-    cardImage: "/logo.png",
+    title: `MyChord`,
+    
     ...pageMeta,
   };
 
@@ -44,7 +43,7 @@ export const Layout: React.FunctionComponent<
   return (
     <>
       <Head>
-        <title>{[TITLE_PREFIX, meta.title].join(" | ")}</title>
+        <title>MyChord</title>
         <meta name="robots" content="follow, index" />
         <link href="/favicon.ico" rel="shortcut icon" />
         <meta content={meta.description} name="description" />

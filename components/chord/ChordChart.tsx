@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import * as React from "react";
 import { useEffect, useRef } from "react";
-import { ChordSettings, SVGuitarChord } from "svguitar";
+import { ChordSettings, Orientation, SVGuitarChord } from "svguitar";
 import { SubscriptionType } from "../../types";
 import { useSubscription } from "../../utils/useSubscription";
 import { useChart } from "./useChart";
@@ -10,7 +10,6 @@ import * as Sentry from "@sentry/react";
 const defaultSVGuitarSettings: Partial<ChordSettings> = {
   fretSize: 1.75,
   barreChordRadius: 0.5,
-  orientation : Orientation.horizontal
 };
 
 export const ChordChart: React.FunctionComponent = () => {
@@ -35,7 +34,7 @@ export const ChordChart: React.FunctionComponent = () => {
           .configure({
             ...defaultSVGuitarSettings,
             ...chart.settings,
-            svgTitle: "",
+            svgTitle: "",            
             watermark,
             watermarkFontSize: 16,
             watermarkColor: "rgba(0, 0, 0, 0.5)",

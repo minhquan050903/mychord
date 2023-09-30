@@ -34,22 +34,12 @@ interface IProps {
 
 // size multipliers (1 => original size)
 const pngSizeMultipliers: { multiplier: number; name: string }[] = [
-  {
-    multiplier: 0.5,
-    name: "Small",
-  },
-  {
-    multiplier: 1,
-    name: "Medium",
-  },
+
   {
     multiplier: 2,
     name: "Large",
   },
-  {
-    multiplier: 4,
-    name: "Huge",
-  },
+
 ];
 
 export const DownloadButtons = ({ title }: IProps) => {
@@ -60,16 +50,31 @@ export const DownloadButtons = ({ title }: IProps) => {
       <Heading as="h2" size="lg" mb={3}>
       </Heading>
       <Flex gap={3} wrap="wrap">
-        <Button
+      {pngSizeMultipliers.map(({ multiplier, name }) => {
+          const width = Math.round(size.width * multiplier);
+          const height = Math.round(size.height * multiplier);
+
+          return (
+            <Button
+              display="flex"
+              gap={2}
+              key={multiplier}
+              onClick={downloadPng(ref.current, width, title)}
+            >
+              <DownloadIcon />
+              <T>DOWNLOAD PNG</T> 
+            </Button>
+          );
+        })}
+      <Button
           
           display="flex"
-          
           gap={2}
           onClick={downloadSvg(ref.current, title)}
         >
           <DownloadIcon />
-          Download
-        </Button>
+          DOWNLOAD SVG
+      </Button>  
 
         
       </Flex>

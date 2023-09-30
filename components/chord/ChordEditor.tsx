@@ -109,23 +109,7 @@ export const ChordEditor = (props: IProps) => {
 
   return (
     <Box>
-      <Tooltip
-        placement="top"
-        label="Reset chord"
-        aria-label="Reset chord"
-        hasArrow={true}
-      >
-        <IconButton
-          zIndex={1}
-          onClick={onResetChord}
-          position="absolute"
-          right={3}
-          top={3}
-          aria-label="Reset chord"
-          variant="outline"
-          icon={<DeleteIcon />}
-        />
-      </Tooltip>
+
       <SilentStringsInput
         settings={displaySettings}
         matrix={matrix}
@@ -138,7 +122,7 @@ export const ChordEditor = (props: IProps) => {
         editMode={editMode}
         onEditModeChange={setEditMode}
       />
-
+      
       <EditModeInput editMode={editMode} onEditModeChange={setEditMode} />
     </Box>
   );

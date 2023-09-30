@@ -1,10 +1,11 @@
-import { Button } from "@chakra-ui/react";
+import { Button,Box } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import React, { useCallback, useRef, useState } from "react";
 import { ColorResult } from "react-color";
 import SketchPicker from "react-color/lib/components/sketch/Sketch";
 import { useEscHandler } from "../../hooks/use-esc-handler";
 import { useOutsideHandler } from "../../hooks/use-outside-click";
+import { useChart } from "../chord/useChart";
 
 const ColorPickerContainer = styled.div`
   position: relative;
@@ -22,7 +23,7 @@ const ColorPreview = styled.span<{ color?: string }>`
   border-radius: 5px;
   margin-right: 10px;
   display: inline-block;
-  background-color: ${(props) => props.color || "000#"};
+  background-color: ${(props) => props.color || "#000"};
 `;
 
 const ColorPreviewButton = styled(Button)`
@@ -32,11 +33,20 @@ const ColorPreviewButton = styled(Button)`
   width: 100%;
 `;
 
-const ClickWrapper = styled.div`
-  position: absolute;
-  top: 60px;
-  z-index: 10;
+const ColorChoices = styled.div`
+  display: flex;
+  gap: 10px;
 `;
+
+const PastelColors = [
+  "#FFD1DC",
+  "#FFABAB",
+  "#FFC3A0",
+  "#FF677D",
+  "#D4A5A5",
+  "#392F5A",
+  "#31A2AC",
+];
 
 interface Props {
   onChange: (color: string) => void;
@@ -56,12 +66,9 @@ export const ColorInput = (props: Props) => {
 
   const escHandler = useCallback(() => setVisible(false), []);
   useEscHandler(escHandler);
-
-  const onColorChange = ({ rgb }: ColorResult) => {
-    const rgba = rgb.a
-      ? `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${rgb.a})`
-      : `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
-    props.onChange(rgba);
+  const { setChart, chart } = useChart();
+  const onColorChange = ({ hex }: ColorResult) => {
+    props.onChange(hex);
   };
 
   return (
@@ -82,9 +89,27 @@ export const ColorInput = (props: Props) => {
       )}
 
       {visible && (
-        <ClickWrapper ref={ref}>
-          <SketchPicker color={props.value} onChangeComplete={onColorChange} />
-        </ClickWrapper>
+        <div ref={ref}>
+          <Box>
+            <ColorChoices>
+            {PastelColors.map((color) => (
+              <ColorPreview
+                key={color}
+                color={color}
+                onClick={() => {
+
+                  props.onChange(color);
+                  if(color != 'black'){
+                    
+                  }
+                  setVisible(false);
+                }}
+              />
+            ))}
+          </ColorChoices>
+          </Box>
+          
+        </div>
       )}
     </ColorPickerContainer>
   );

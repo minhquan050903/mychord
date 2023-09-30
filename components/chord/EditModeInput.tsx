@@ -12,34 +12,34 @@ export const EditModeInput = ({ onEditModeChange, editMode }: IProps) => {
   const onChange = (mode: EditMode) => () => onEditModeChange(mode);
 
   return (
-    <SimpleGrid gridTemplateColumns="1fr 1fr" gap={2} mt={15}>
+    <SimpleGrid gridTemplateColumns="1fr 1fr" gap={0} mt={15}>
       <Button
         onClick={onChange(EditMode.EDIT_NOTES)}
         variant={editMode === EditMode.EDIT_NOTES ? "solid" : "outline"}
-        size="sm"
+        size="lg"
       >
-        <T>Edit Fingers</T>
+        <T>Fingers</T>
       </Button>
       <Button
         onClick={onChange(EditMode.EDIT_TEXT)}
         variant={editMode === EditMode.EDIT_TEXT ? "solid" : "outline"}
-        size="sm"
+        size="lg"
       >
-        <T>Edit Text</T>
+        <T>Text</T>
       </Button>
       <Button
         onClick={onChange(EditMode.EDIT_COLOR)}
         variant={editMode === EditMode.EDIT_COLOR ? "solid" : "outline"}
-        size="sm"
+        size="lg"
       >
-        <T>Edit Colors</T>
+        <T>Colors</T>
       </Button>
       <Button
         onClick={onChange(EditMode.EDIT_SHAPE)}
         variant={editMode === EditMode.EDIT_SHAPE ? "solid" : "outline"}
-        size="sm"
+        size="lg"
       >
-        <T>Edit Shapes</T>
+        <T>Shapes</T>
       </Button>
     </SimpleGrid>
   );

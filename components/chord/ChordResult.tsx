@@ -6,6 +6,7 @@ import { defaultValues } from "../ChordForm";
 import { ChordChart } from "./ChordChart";
 import { useChart } from "./useChart";
 import * as Sentry from "@sentry/react";
+import { Orientation } from "svguitar";
 
 const ErrorFallback: React.FunctionComponent<{
   onReset(): void;
@@ -41,6 +42,7 @@ export const ChordResult: React.FunctionComponent = () => {
     setChart({
       chord: chart.chord,
       settings: defaultValues,
+      
     });
     window.location.reload();
   }, [chart.chord, setChart]);

@@ -5,6 +5,7 @@ import { IChordInputSettings } from "../ChordEditor";
 import styled from "@emotion/styled";
 import { ChordMatrix } from "../../../services/chord-matrix";
 import { EditMode } from "../../../domain/edit-mode";
+import { color } from "@chakra-ui/react";
 
 export interface IChordTextInputProps {
   settings: IChordInputSettings;
@@ -29,7 +30,7 @@ const InputCell = styled.div<IInputCellProps>`
 
 const StyledInput = styled.input`
   height: 40%;
-  width: 100%;
+  width: 70%;
   border: 2px solid var(--chakra-colors-chakra-body-text);
   border-radius: 3px;
   padding: 0;
@@ -41,7 +42,7 @@ const StyledInput = styled.input`
 
 const StyledTextSpan = styled.span`
   position: absolute;
-  color: #b3b3b3;
+  color: white;
 `;
 
 export const ChordTextInput = (props: IChordTextInputProps) => {
@@ -76,10 +77,12 @@ export const ChordTextInput = (props: IChordTextInputProps) => {
                       matrix.text(
                         stringIndex,
                         fretIndex,
+                        
                         (e.target as HTMLInputElement).value
                       )
                     )
                   }
+                  
                 />
               )}
               {!empty && props.editMode !== EditMode.EDIT_TEXT && (
