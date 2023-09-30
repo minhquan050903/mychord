@@ -46,6 +46,7 @@ export type AdjustableChordSettings = Pick<
   | "titleFontSize"
   | "strokeWidth"
   | "color"
+  | "tuning"
   | "backgroundColor"
   | "fixedDiagramPosition"
   | "noPosition"
