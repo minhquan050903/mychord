@@ -82,10 +82,10 @@ const Home: NextPage = () => {
               <Flex 
               as="h2"
               mb={5}
-              mt={5}
+              mt={0}
               alignItems="center" 
               justify="center">
-                  <T>EDITOR</T>
+                  <Heading>EDITOR</Heading>
               </Flex>
                 <Center>
                   <ChordEditor
@@ -108,16 +108,14 @@ const Home: NextPage = () => {
               display="block"
             >
               <Box p={3} id="result" height="100%" position="relative">
-                <Heading
-                  as="h2"
-                  size="md"
-                  transformOrigin="0 0"
-                  top={8}
-                  left={-2}
-                  display="inline-block"
-                >
-                  <T>Result</T>
-                </Heading>
+              <Flex 
+              as="h2"
+              mb={0}
+              mt={0}
+              alignItems="center" 
+              justify="center">
+                  <Heading>RESULT</Heading>
+              </Flex>
                
                 <ChordResult />
               </Box>
@@ -125,9 +123,16 @@ const Home: NextPage = () => {
           </Grid>
        
     
-    
+          <Flex 
+              as="h2"
+              mb={0}
+              mt={0}
+              alignItems="center" 
+              justify="center">
+                  <DownloadButtons  title={chart.settings.title} />
+            </Flex>
         
-          <DownloadButtons  title={chart.settings.title} />
+          
       
 
       
