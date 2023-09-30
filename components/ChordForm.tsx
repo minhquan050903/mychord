@@ -39,7 +39,6 @@ export type AdjustableChordSettings = Pick<
   | "strings"
   | "position"
   | "title"
-  | "style"
   | "fretSize"
   | "fingerSize"
   | "fingerTextSize"
@@ -58,7 +57,6 @@ export const defaultValues: AdjustableChordSettings = {
   frets: 5,
   strings: 6,
   position: 1,
-  style: ChordStyle.normal,
   fretSize: 1.5,
   fingerSize: 0.65,
   fingerTextSize: 24,
