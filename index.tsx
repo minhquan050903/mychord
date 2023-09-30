@@ -131,8 +131,7 @@ const Home: NextPage = () => {
               justify="center">
                   <DownloadButtons  title={chart.settings.title} />
             </Flex>
-        
-          
+      
       
 
       
