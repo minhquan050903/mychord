@@ -38,8 +38,8 @@ export type AdjustableChordSettings = Pick<
   | "frets"
   | "strings"
   | "position"
-  | "style"
   | "title"
+  | "style"
   | "fretSize"
   | "fingerSize"
   | "fingerTextSize"
@@ -47,6 +47,7 @@ export type AdjustableChordSettings = Pick<
   | "strokeWidth"
   | "color"
   | "backgroundColor"
+  | "tuning"
   | "fixedDiagramPosition"
   | "noPosition"
 >;
@@ -59,11 +60,12 @@ export const defaultValues: AdjustableChordSettings = {
   position: 1,
   style: ChordStyle.normal,
   fretSize: 1.5,
-  fingerSize: 0.65,
+  fingerSize: 0.7,
   fingerTextSize: 24,
   strokeWidth: 2,
   titleFontSize: 48,
   backgroundColor: "white",
+  tuning: ['E', 'A', 'D', 'G', 'B', 'E'],
   color: "black",
   fixedDiagramPosition: false,
 };
@@ -89,7 +91,7 @@ export const ChordForm: React.FunctionComponent<{
   });
   const [data, setData] = useState<AdjustableChordSettings>(settings);
 
-  watch(setData);
+
 
   const deferredValue = useDeferredValue(data);
 
