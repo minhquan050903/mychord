@@ -39,13 +39,13 @@ const ColorChoices = styled.div`
 `;
 
 const PastelColors = [
-  "#FFD1DC",
-  "#FFABAB",
-  "#FFC3A0",
-  "#FF677D",
+  "#F6CAB7",
+  "#FFC8A5",
+  "#FFF4CE",
+  "#CDEDCE",
   "#D4A5A5",
-  "#392F5A",
-  "#31A2AC",
+  "#B9D8E4",
+  "#D1C5E1",
 ];
 
 interface Props {

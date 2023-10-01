@@ -42,6 +42,7 @@ export const ChartProvider: React.FunctionComponent<PropsWithChildren<{}>> = ({
     chord: {
       fingers: [],
       barres: [],
+      
     },
     settings: defaultSVGuitarSettings,
   });

@@ -86,7 +86,7 @@ export const ChordEditor = (props: IProps) => {
       chord: props.chord,
       settings: {
         ...props.settings,
-        tuning,
+        
       },
     });
 
@@ -127,7 +127,6 @@ export const ChordEditor = (props: IProps) => {
     </Box>
   );
 };
-
 
 function emptyTunings(length: number): string[] {
   return Array.from({ length }, () => "");

@@ -66,15 +66,6 @@ export const DownloadButtons = ({ title }: IProps) => {
             </Button>
           );
         })}
-      <Button
-          
-          display="flex"
-          gap={2}
-          onClick={downloadSvg(ref.current, title)}
-        >
-          <DownloadIcon />
-          DOWNLOAD SVG
-      </Button>  
 
         
       </Flex>
