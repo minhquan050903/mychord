@@ -91,7 +91,10 @@ export const ChordForm: React.FunctionComponent<{
   });
   const [data, setData] = useState<AdjustableChordSettings>(settings);
 
+  const watchedData = watch();
 
+  // Now you can set the watchedData using setData
+  setData(watchedData);
 
   const deferredValue = useDeferredValue(data);
 
