@@ -314,6 +314,9 @@ export class ChordMatrix {
   color(string: number, fret: number, color?: string) {
     return this.set(string, fret, { color })
   }
+  textColor(string: number, fret: number, textColor?: string) {
+    return this.set(string, fret, { textColor })
+  }
 
   nextShape(string: number, fret: number) {
     const currentShape = this.get(fret, string).shape ?? Shape.CIRCLE

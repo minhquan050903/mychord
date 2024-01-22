@@ -81,9 +81,17 @@ export const ChordColorInput = (props: IChordTextInputProps) => {
                     "var(--chakra-colors-chakra-body-text)"
                   }
                   onChange={(color) => {
+                    
                     props.onMatrixChange(
                       matrix.color(stringIndex, fretIndex, color)
+
                     );
+                    if (color != "#000000"){
+                      props.onMatrixChange(
+                        matrix.textColor(stringIndex, fretIndex, "#000000")
+                        
+                      );
+                    }
                   }}
                 />
               )}
