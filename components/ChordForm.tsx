@@ -44,11 +44,12 @@ export type AdjustableChordSettings = Pick<
   | "fingerSize"
   | "fingerTextSize"
   | "titleFontSize"
-  | "strokeWidth"
+
   | "color"
   | "backgroundColor"
   | "stringColor"
   | "noPosition"
+  | "fingerStrokeColor"
 >;
 
 export const defaultValues: AdjustableChordSettings = {
@@ -61,11 +62,12 @@ export const defaultValues: AdjustableChordSettings = {
   fretSize: 1.5,
   fingerSize: 0.7,
   fingerTextSize: 24,
-  strokeWidth: 2,
   titleFontSize: 48,
   backgroundColor: "white",
   color: "black",
   stringColor:"#c4c3c0",
+  fingerStrokeColor : "black",
+  
 };
 
 export const ChordForm: React.FunctionComponent<{
