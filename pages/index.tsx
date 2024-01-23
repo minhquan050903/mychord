@@ -140,7 +140,7 @@ const Home: NextPage = () => {
             </GridItem>
           </Grid>
        
-          <Stack 
+<Stack 
     as="h2"
     mb={0}
     mt={0}
@@ -148,6 +148,7 @@ const Home: NextPage = () => {
     justify="center"
     spacing={4}>
     <DownloadButtons title={chart.settings.title} />
+    <p>AND</p>
     <Button as="a" href="https://my-chords-editor.vercel.app" colorScheme="teal" size="lg">
         Create your chords here
     </Button>
